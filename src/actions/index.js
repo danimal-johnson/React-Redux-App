@@ -1,6 +1,7 @@
+import axios from 'axios';
 export const FETCH_TRONALD_LOADING = "FETCH_TRONALD_LOADING";
-export const FETCH_TRONALD_SUCCESS = "FETCH_TRONALD_LOADING";
-export const FETCH_TRONALD_FAILED = "FETCH_TRONALD_LOADING";
+export const FETCH_TRONALD_SUCCESS = "FETCH_TRONALD_SUCCESS";
+export const FETCH_TRONALD_FAILED = "FETCH_TRONALD_FAILED";
 
 export const tronaldLoading = () => ({
   type: FETCH_TRONALD_LOADING
@@ -25,12 +26,20 @@ export function fetchTronald() {
 
   return function(dispatch) {
     dispatch(tronaldLoading());
-
+    /*
     return fetch(wholeEnchilada)
       .then (response => response.json())
       .then (json => 
         dispatch(tronaldLoadSuccess(json.results))
       )
       .catch(error => dispatch(tronaldLoadFailed(error)));
+      */
+    return axios
+    .get(`${wholeEnchilada}`)
+    .then(response => response.data)
+    .then(data => 
+      dispatch(tronaldLoadSuccess(data.results)))
+    .catch(error => dispatch(tronaldLoadFailed(error))
+    );
   };
 }

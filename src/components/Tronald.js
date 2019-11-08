@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchTronald } from '../actions';
 
 function Tronald(props) {
-  console.log("Tronald:", props.results);
+  console.log("Tronald:", props);
 
   return (
     <>
@@ -14,9 +14,15 @@ function Tronald(props) {
       {props.error && <div>{props.error.message}</div>}
 
       <h2>The response:</h2>
-      <p className="results">
-        {props.results}
-      </p>
+      <div className="results">
+      <ul>
+          {props.quotes.map(p => (
+            <li key={p.name}>
+              {p.name}
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
