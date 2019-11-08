@@ -1,0 +1,3 @@
+GET https://api.tronalddump.io/search/quote?query=obama
+  
+GET https://api.tronalddump.io/search/quote?query

@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
+import Tronald from './components/Tronald';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>I think I thunk about something fetching.</h1>
+      <h1>The Tronald Drumpifier</h1>
+      <Tronald />
     </div>
   );
 }
