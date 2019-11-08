@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchTronald } from '../actions';
 
 function Tronald(props) {
-  console.log("Tronald:", props);
+  console.log("Tronald:", props.results);
 
   return (
     <>
@@ -14,14 +14,14 @@ function Tronald(props) {
       {props.error && <div>{props.error.message}</div>}
 
       <h2>The response:</h2>
-      <p class="results">
-        The results will go here...
+      <p className="results">
+        {props.results}
       </p>
     </>
   );
 }
 
-const mapDispatchToProps = {
+const mapStateToProps = {
   // Action Creators go here!
   fetchTronald
 }

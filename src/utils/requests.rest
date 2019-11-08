@@ -1,3 +1,10 @@
 GET https://api.tronalddump.io/search/quote?query=obama
+
+GET https://cors-anywhere.herokuapp.com/https://api.tronalddump.io/search/quote?query=obama
+
+GET https://api.tronalddump.io/search/quote?query=obama
   
 GET https://api.tronalddump.io/search/quote?query
+
+GET https://cors-anywhere.herokuapp.com/https://api.tronalddump.io/search/quote?query=obama
+wholeEnchilada = herokuCorsFix + baseUrl + searchTerm;
