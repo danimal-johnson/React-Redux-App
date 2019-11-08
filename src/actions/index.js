@@ -14,11 +14,16 @@ export const tronaldLoadFailed = error => ({
 
 
 export function fetchTronald() {
+  const herokuCorsFix="https://cors-anywhere.herokuapp.com/";
+  const baseUrl="https://api.tronalddump.io/search/quote?query=";
+  const searchTerm="obama";
+  const wholeEnchilada = herokuCorsFix + baseUrl + searchTerm;
+  console.log ("Going to get this:", wholeEnchilada);
 
   return function(dispatch) {
     dispatch(tronaldLoading());
 
-    return fetch(`https://api.tronalddump.io/search/quote?query=obama`)
+    return fetch(wholeEnchilada)
       .then (json => 
         dispatch(tronaldLoadSuccess(json.results))
         )
