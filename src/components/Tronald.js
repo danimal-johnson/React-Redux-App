@@ -16,9 +16,9 @@ function Tronald(props) {
       <h2>The response:</h2>
       <div className="results">
       <ul>
-          {props.quotes.map(p => (
-            <li key={p.name}>
-              {p.name}
+          {props.quotes.map(q => (
+            <li key={q.quote_id}>
+              {q.value}
             </li>
           ))}
         </ul>

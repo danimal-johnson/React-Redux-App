@@ -18,28 +18,21 @@ export const tronaldLoadFailed = error => ({
 
 export function fetchTronald() {
   // const herokuCorsFix="https://cors-anywhere.herokuapp.com/";
-  // const baseUrl="https://api.tronalddump.io/search/quote?query=obama";
+  const baseUrl="https://api.tronalddump.io/search/quote?query=obama";
   // const searchTerm="obama";
-   const baseUrl="https://pokeapi.co/api/v2/pokemon";
+  // const baseUrl="https://pokeapi.co/api/v2/pokemon";
   const wholeEnchilada = baseUrl;
   console.log ("Going to get this:", wholeEnchilada);
 
   return function(dispatch) {
     dispatch(tronaldLoading());
-    /*
-    return fetch(wholeEnchilada)
-      .then (response => response.json())
-      .then (json => 
-        dispatch(tronaldLoadSuccess(json.results))
-      )
-      .catch(error => dispatch(tronaldLoadFailed(error)));
-      */
+
     return axios
-    .get(`${wholeEnchilada}`)
-    .then(response => response.data)
-    .then(data => 
-      dispatch(tronaldLoadSuccess(data.results)))
-    .catch(error => dispatch(tronaldLoadFailed(error))
+      .get(`${wholeEnchilada}`)
+      .then(response => response.data._embedded.quotes)
+      .then(quotes =>
+        dispatch(tronaldLoadSuccess(quotes)))
+      .catch(error => dispatch(tronaldLoadFailed(error))
     );
   };
 }
