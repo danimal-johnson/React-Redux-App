@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchTronald } from '../actions';
+import "../App.css"
 
 function Tronald(props) {
   console.log("Tronald:", props);
@@ -15,13 +16,11 @@ function Tronald(props) {
 
       <h2>The response:</h2>
       <div className="results">
-      <ul>
           {props.quotes.map(q => (
-            <li key={q.quote_id}>
+            <div className="quote-card" key={q.quote_id}>
               {q.value}
-            </li>
+            </div>
           ))}
-        </ul>
       </div>
     </>
   );
